@@ -12,6 +12,6 @@ export const MonacoEditor: FunctionComponent = () => {
   });
 
   return (
-    <div id="monaco-editor" />
+    <div id="monaco-editor" style={{width: "800px", height: "300px", border: "1px"}}/>
   );
 };
