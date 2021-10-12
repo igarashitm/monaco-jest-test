@@ -106,7 +106,8 @@
       "!src/**/*.d.ts"
     ],
     "setupFiles": [
-      "react-app-polyfill/jsdom"
+      "react-app-polyfill/jsdom",
+      "jest-canvas-mock"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/src/setupTests.ts"
@@ -123,13 +124,13 @@
       "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/(?!(monaco-editor)/)"
+      "/node_modules/(?!monaco-editor).+\\.js$"
     ],
     "modulePaths": [],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "monaco-editor": "monaco-editor/esm/vs/editor/editor.api.d.ts"
+      "monaco-editor": "monaco-editor/monaco.d.ts"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -152,9 +153,14 @@
   "babel": {
     "presets": [
       "react-app"
+    ],
+    "plugins": [
+      [ "@babel/plugin-transform-typescript", { "allowNamespaces": true, "allowDeclareFields": true } ]
     ]
   },
   "devDependencies": {
+    "@babel/plugin-transform-typescript": "^7.15.8",
+    "jest-canvas-mock": "^2.3.1",
     "monaco-editor-webpack-plugin": "4.2.0"
   }
 }
