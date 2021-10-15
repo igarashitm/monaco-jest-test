@@ -1,4 +1,4 @@
-import { editor } from "monaco-editor/esm/vs/editor/editor.api";
+import { editor } from "monaco-editor";
 import { FunctionComponent, useEffect } from "react";
 import React from "react";
 
