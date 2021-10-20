@@ -1,12 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
+import { Position } from 'monaco-editor';
 
 describe("App should", () => {
   beforeAll(() => {
   })
   test('renders learn react link', () => {
     render(<App />);
+    const p = new Position(1, 1);
     const div = document.getElementById("monaco-editor");
     expect(div).toBeTruthy();
     const canvas = div?.getElementsByTagName("canvas");
